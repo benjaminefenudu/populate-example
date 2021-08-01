@@ -22,7 +22,7 @@ const dbOnline = async (app) => {
       }
     );
   } catch (error) {
-    handleError(error);
+    console.log(error);
   }
 };
 

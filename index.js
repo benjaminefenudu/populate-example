@@ -4,8 +4,8 @@ const { model, Schema } = require("mongoose");
 const app = require("express")();
 
 // Connect to mongodb
-// require("./dbOffline")(app);
-require("./dbOnline")(app);
+require("./dbOffline")(app);
+// require("./dbOnline")(app);
 
 // Department Schema
 const DepartmentSchema = new Schema({
@@ -36,7 +36,7 @@ const Company = model("company", CompanySchema);
 
 app.use("/", async (req, res) => {
   // Create Departments
-  await Department.remove({});
+  await Department.deleteMany({});
   await Department.create({
     name: "IT Department",
     location: "Building A",
@@ -47,7 +47,7 @@ app.use("/", async (req, res) => {
   });
 
   // Create Employees
-  await Employee.remove({});
+  await Employee.deleteMany({});
   await Employee.create({
     firstName: "Victor",
     lastName: "Kjartansson",
@@ -62,7 +62,7 @@ app.use("/", async (req, res) => {
   });
 
   // Create Company
-  await Company.remove({});
+  await Company.deleteMany({});
   await Company.create({
     name: "BigCompany",
     address: "Address 1",
