@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DB = async (app) => {
+const dbOffline = async (app) => {
     mongoose.connect("mongodb://localhost/populatedb", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -19,4 +19,4 @@ const DB = async (app) => {
     })
 }
 
-module.exports = DB
+module.exports = dbOffline

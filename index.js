@@ -4,7 +4,8 @@ const { model, Schema } = require("mongoose");
 const app = require("express")();
 
 // Connect to mongodb
-const DB = require("./db")(app);
+// require("./dbOffline")(app);
+require("./dbOnline")(app);
 
 // Department Schema
 const DepartmentSchema = new Schema({
